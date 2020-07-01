@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Registro ITSM') {
             steps {
-                sh 'curl -vk -H "Content-Type: application/json" -d {"name":"test","salary":"123","age":"23"} http://dummy.restapiexample.com/create'
+                sh 'curl -vk -H "Content-Type: application/json" -d {"name":"test","salary":"123","age":"23"} http://dummy.restapiexample.com/api/v1/create'
             }
         }   
     }
