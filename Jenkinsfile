@@ -2,15 +2,15 @@
 pipeline {
    agent any
 
+   tools { 
+        maven 'maven3' 
+    }
+
    stages {
       
       stage('Verificando MVN') {
         steps {
-            withMaven(maven: 'maven3') {
-
-                // Run the maven build
-                sh "mvn -version"
-            }
+            sh "mvn -version"           
         }
       }
       stage('Executando Flyway') {
