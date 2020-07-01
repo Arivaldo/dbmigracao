@@ -5,10 +5,12 @@ pipeline {
    stages {
       
       stage('Verificando MVN') {
-        withMaven(maven: 'maven3') {
+        steps {
+            withMaven(maven: 'maven3') {
 
-            // Run the maven build
-            sh "mvn -version"
+                // Run the maven build
+                sh "mvn -version"
+            }
         }
       }
       stage('Executando Flyway') {
