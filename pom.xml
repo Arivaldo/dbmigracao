@@ -31,7 +31,7 @@
         <artifactId>flyway-maven-plugin</artifactId>
         <version>6.5.0</version>
         <configuration>
-          <url>jdbc:postgresql://tecvaldo-pro.matrix.net:5432/db</url>
+          <url>jdbc:postgresql://pc.matrix.net:5432/db</url>
           <user>postgres</user>
           <password>admin</password>
         </configuration>

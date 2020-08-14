@@ -7,11 +7,33 @@ pipeline {
         }
     }
 
+    parameters {
+        string(name: 'HOST', defaultValue: 'scs0000', description: 'Nome DNS do host')
+
+        text(name: 'DESCRICAO', defaultValue: 'O proposito é ...', description: 'Propósito do serviço/servidor')
+
+        booleanParam(name: 'Para Base de Dados?! ', defaultValue: false, description: 'Marque se for para SGBD')
+
+        choice(name: 'TAMANHO', choices: ['Pequeno', 'Médio', 'Grande'], description: 'Tamanho do Host')
+
+        password(name: 'PASSWORD', defaultValue: 'Senha segura', description: 'Coloque o password')
+    }
+
     stages {
                 
-        stage('Verificando MVN') {
+        stage('Verificando MVN e Parametros de entrada') {
             steps {
-                sh "mvn -version"           
+                sh "mvn -version"    
+
+                echo "O nome do Host é ${params.HOST}"
+
+                echo "Descrição: ${params.DESCRICAO}"
+
+                echo "Será usado para Database: ${params.TOGGLE}"
+
+                echo "Tamanho: ${params.TAMANHO}"
+
+                echo "Password: ${params.PASSWORD}"       
             }
         }
         stage('Executando Flyway') {
